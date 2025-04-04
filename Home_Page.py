@@ -33,9 +33,9 @@ Welcome to our Peer Mentorship Platform! This application helps connect new stud
 st.divider()
 st.subheader("Navigate to Pages")
 st.subheader("Home")
-st.page_link("Phase2_Matching.py", label="Mentor Matching")
-st.page_link("Phase3_LLM_Analysis.py", label="Analytics")
-st.page_link("Phase4_Chatbot.py", label="AI Assistant")
+st.page_link("./Phase2_Matching.py", label="Mentor Matching")
+st.page_link("./Phase3_LLM_Analysis.py", label="Analytics")
+st.page_link("./Phase4_Chatbot.py", label="AI Assistant")
 
 st.image("Images/mentorship.jpg", caption="Building connections through mentorship", use_column_width=True)
 
