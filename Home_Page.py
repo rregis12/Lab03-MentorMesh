@@ -5,7 +5,7 @@ st.title("Peer Mentorship Platform")
 
 
 st.header("CS 1301")
-st.subheader("Team X, Web Development - Section A")
+st.subheader("Web Development - Section A")
 st.subheader("Rashaun Regis")
 
 
