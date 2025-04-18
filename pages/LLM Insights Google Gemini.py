@@ -34,7 +34,14 @@ if api_key:
             ]
         return []
 
-    mentors = fetch_mentors()
+    if st.button("🔁 Refresh Mentor List"):
+    st.session_state.mentors = fetch_mentors()
+    
+    if "mentors" not in st.session_state:
+    st.session_state.mentors = fetch_mentors()
+
+mentors = st.session_state.mentors
+
 
     mentor_names = [m['name'] for m in mentors]
     m1 = st.selectbox("Select Mentor 1", mentor_names)
