@@ -11,7 +11,8 @@ if not api_key:
 
 if api_key:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-1.5-pro-latest")
+
     if "chat" not in st.session_state:
         st.session_state.chat = model.start_chat(history=[])
 
