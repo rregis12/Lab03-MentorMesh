@@ -14,7 +14,8 @@ if not api_key:
 
 if api_key:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-1.5-pro-latest")
+
 
     def fetch_mentors(num=10):
         response = requests.get(f"https://randomuser.me/api/?results={num}")
