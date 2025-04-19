@@ -1,44 +1,37 @@
 import streamlit as st
 
+st.set_page_config(page_title="MentorMesh", layout="wide")
 
-st.title("Peer Mentorship Platform")
+st.title("MentorMesh: Peer Mentorship Platform")
+st.subheader("CS 1301 | Team X | Section A")
+st.markdown("**Rashaun Regis**")
 
+with st.container():
+    st.write("Welcome to MentorMesh, a platform that connects students with peer mentors based on shared academic goals, interests, and communication styles.")
+    st.markdown("""
+    ### Navigation
+    - **Home Page**: Learn what MentorMesh is all about.
+    - **Mentor Matching**: Get matched with a compatible peer mentor.
+    - **LLM Mentor Insights**: Use AI to compare and choose the best mentor.
+    - **Mentor Chatbot**: Ask questions and get mentorship advice from our chatbot.
+    """)
 
-st.header("CS 1301")
-st.subheader("Team X, Web Development - Section A")
-st.subheader("Rashaun Regis")
+with st.container():
+    st.header("🧠 Benefits of Peer Mentorship")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("- Build a strong support system\n- Get real-world guidance\n- Learn from experienced peers")
+    with col2:
+        st.markdown("- Improve academic confidence\n- Develop professional skills\n- Get career direction")
 
+st.image("Images/mentorship.jpg", use_column_width=True, caption="Empowering students through mentorship")
 
-st.write("""
-Welcome to our Peer Mentorship Platform! This application helps connect new students with experienced mentors based on shared interests, academic goals, and career aspirations. Navigate between the pages using the sidebar to the left. The following pages are available:
+with st.container():
+    st.header("🚀 How to Use MentorMesh")
+    st.markdown("""
+    1. Create your profile on the **Mentor Matching** page.
+    2. View your top mentor matches.
+    3. Use the **LLM Insights** page for AI-generated comparisons.
+    4. Chat with the **Mentor Chatbot** for personalized advice.
+    """)
 
-1. **Home Page**: Learn about our platform and how it helps foster meaningful mentorship connections.
-2. **Mentor Matching**: Find your ideal mentor match based on interests, academic goals, and expertise.
-3. **Mentorship Analytics**: View advanced analytics and personalized insights about your mentorship relationship.
-4. **Mentor Chatbot**: Get mentorship advice and support through our specialized AI mentor assistant.
-""")
-
-
-st.image("Images/mentorship.jpg", caption="Building connections through mentorship", use_column_width=True)
-
-
-st.header("Benefits of Peer Mentorship")
-st.write("""
-Peer mentorship programs offer numerous benefits for both mentors and mentees:
-
-- **Knowledge Transfer**: Share experiences and insights that aren't found in textbooks
-- **Network Building**: Expand your professional and academic connections
-- **Skill Development**: Develop leadership and communication skills
-- **Support System**: Create a supportive environment for academic and personal growth
-- **Career Guidance**: Get practical advice on career paths and opportunities
-""")
-
-
-st.header("How Our Platform Works")
-st.write("""
-1. **Create a Profile**: Fill out your interests, academic goals, and mentorship preferences
-2. **Get Matched**: Our algorithm connects you with compatible mentors or mentees
-3. **Set Goals**: Establish clear objectives for your mentorship relationship
-4. **Track Progress**: Monitor achievements and growth throughout the mentorship
-5. **Communicate**: Stay connected through our built-in communication tools
-""")
