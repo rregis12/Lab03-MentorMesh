@@ -6,7 +6,6 @@ from datetime import datetime
 import plotly.express as px
 
 st.set_page_config(page_title="Mentor Matching", page_icon="🤝", layout="wide")
-
 st.title("🤝 Mentor Matching")
 st.write("Get matched with a mentor who shares your goals and supports your academic journey.")
 
@@ -17,16 +16,19 @@ with col1:
     name = st.text_input("Full Name")
     year = st.selectbox("Academic Year", ["Freshman", "Sophomore", "Junior", "Senior", "Graduate"])
 
-    @st.cache_data
     def get_majors():
-        try:
-            response = requests.get("https://api.sampleapis.com/futurama/characters")
-            if response.status_code == 200:
-                occupations = [char['occupation'] for char in response.json() if char.get('occupation')]
-                return list(set(occupations))[:15] + ["Computer Science", "Biology", "Psychology"]
-        except:
-            return ["Computer Science", "Biology", "Psychology", "Engineering"]
-        return ["Computer Science", "Biology"]
+        return [
+            "Aerospace Engineering", "Applied Language and Intercultural Studies", "Applied Physics",
+            "Architecture", "Biochemistry", "Biology", "Biomedical Engineering", "Business Administration",
+            "Chemical and Biomolecular Engineering", "Chemistry", "Civil Engineering", "Computational Media",
+            "Computer Engineering", "Computer Science", "Earth and Atmospheric Sciences", "Economics",
+            "Economics and International Affairs", "Electrical Engineering", "Environmental Engineering",
+            "Global Economics and Modern Languages", "History, Technology, and Society", "Industrial Design",
+            "Industrial Engineering", "International Affairs", "International Affairs and Modern Languages",
+            "Literature, Media, and Communication", "Materials Science and Engineering", "Mathematics",
+            "Mechanical Engineering", "Music Technology", "Neuroscience", "Nuclear and Radiological Engineering",
+            "Physics", "Psychology", "Public Policy"
+        ]
 
     majors = get_majors()
     selected_major = st.selectbox("Your Major", majors)
@@ -63,7 +65,7 @@ def get_mentors(n=20):
                 'name': f"{p['name']['first']} {p['name']['last']}",
                 'picture': p['picture']['large'],
                 'email': p['email'],
-                'major': random.choice(["Computer Science", "Biology", "Engineering"]),
+                'major': random.choice(get_majors()),
                 'academic_year': random.choice(["Junior", "Senior", "Graduate"]),
                 'interests': random.sample(interests, 3),
                 'goals': random.sample(goals, 2),
@@ -126,10 +128,15 @@ if submit_button and name:
             "Experience": m['years_experience'],
             "Rating": m['rating']
         } for m in top_matches])
-        fig = px.bar(df, x="Mentor", y="Match Score", color="Match Score", title="Top Mentor Scores")
-        st.plotly_chart(fig, use_container_width=True)
+
+        if not df.empty:
+            fig = px.bar(df, x="Mentor", y="Match Score", color="Match Score", title="Top Mentor Scores")
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.warning("No mentor matches to display.")
 else:
     if submit_button:
         with col2:
             st.error("Please enter your name.")
+
 
