@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="MentorMesh", layout="wide")
 
 st.title("MentorMesh: Peer Mentorship Platform")
-st.subheader("CS 1301 | Team X | Section A")
+st.subheader("CS 1301 Section A")
 st.markdown("**Rashaun Regis**")
 
 with st.container():
