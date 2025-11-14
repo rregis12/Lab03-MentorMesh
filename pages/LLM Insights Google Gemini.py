@@ -45,7 +45,8 @@ mentor2 = next((m for m in mentors if m["name"] == m2), None)
 
 if api_key:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-1.5-pro-latest")
+    model = genai.GenerativeModel("gemini-2.5-pro")
+
     if mentor1 and mentor2 and st.button("🔍 Generate Insights"):
         prompt = f"""
 Compare these two mentors for a peer mentorship match:
@@ -77,4 +78,5 @@ Which mentor might be a better match for a mentee interested in academic growth 
             st.error(f"Error generating insights: {e}")
 else:
     st.warning("Please enter your Gemini API key to continue.")
+
 
