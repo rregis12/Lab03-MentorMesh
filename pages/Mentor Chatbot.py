@@ -11,7 +11,8 @@ if not api_key:
 
 if api_key:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-1.5-pro-latest")
+    model = genai.GenerativeModel("gemini-2.5-pro")
+
 
     if "chat" not in st.session_state:
         st.session_state.chat = model.start_chat(history=[])
@@ -26,3 +27,4 @@ if api_key:
             st.error(f"Oops! Something went wrong: {e}")
 else:
     st.warning("Please enter your Gemini API key to continue.")
+
