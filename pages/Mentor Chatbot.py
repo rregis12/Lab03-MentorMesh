@@ -11,13 +11,16 @@ if not api_key:
 
 if api_key:
     genai.configure(api_key=api_key)
+
+    # ✅ UPDATED MODEL NAME
     model = genai.GenerativeModel("gemini-2.5-pro")
 
-
+    # Chat session setup
     if "chat" not in st.session_state:
         st.session_state.chat = model.start_chat(history=[])
 
     user_input = st.text_input("Ask your mentorship question:")
+
     if user_input:
         try:
             response = st.session_state.chat.send_message(user_input)
@@ -27,4 +30,6 @@ if api_key:
             st.error(f"Oops! Something went wrong: {e}")
 else:
     st.warning("Please enter your Gemini API key to continue.")
+
+
 
